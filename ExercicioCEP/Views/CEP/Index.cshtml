@@ -1,0 +1,49 @@
+﻿@model List<CEP>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width" />
+    <title>Consultar e Cadastrar CEP</title>
+</head>
+<body>
+    <div class="container" style="margin-top:30px">
+        <form asp-action="PesquisarCEP" asp-controller="CEP">
+            <h2>Consultar e Cadastrar CEP</h2>
+
+            <label for="txtCEP">Digite o CEP:</label>
+            <input type="text" id="txtCEP" name="txtCEP" class="form-control col-4" placeholder="00000999" /><br />
+            <input type="submit" value="Consultar e Cadastrar" class="btn btn-primary" />
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Cep</th>
+                    <th>Logradouro</th>
+                    <th>Complemento</th>
+                    <th>Bairro</th>
+                    <th>Localidade</th>
+                    <th>Uf</th>
+                </tr>
+
+                @foreach (CEP item in Model)
+                {
+                    <tr>
+                        <td>@item.Cep</td>
+                        <td>@item.Logradouro</td>
+                        <td>@item.Complemento</td>
+                        <td>@item.Bairro</td>
+                        <td>@item.Localidade</td>
+                        <td>@item.Uf</td>
+                    </tr>
+                }
+            </table>
+        </form>
+    </div>
+      
+
+</body>
+</html>
